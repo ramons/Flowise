@@ -12,6 +12,8 @@ jobs:
         username: nologin
         password: ${{ secrets.SCALEWAY_API_KEY }}
         registry: ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}
+- name: Debug Registry URL
+  run: echo "Registry = ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}"
     - name: Build the Docker image
       run: docker build . -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/my-docker-image
     - name: Push the Docker Image
